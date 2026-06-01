@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Professional 3D Portfolio of Monu Kumawat, a Computer Science Engineering Student specializing in Web Development, Graphic Design, Photography, and Digital Marketing.">
+  <meta name="keywords" content="Monu Kumawat, Portfolio, Web Developer, Graphic Designer, Photographer, Computer Science, Three.js, Cyberpunk Website, SPA">
+  <meta name="author" content="Monu Kumawat">
+  <title>Monu Kumawat | 3D Creative Developer Single-Page Portfolio</title>
+  
+  <!-- FontAwesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Core Stylesheet -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <!-- Sticky Main Navigation Header -->
+  <header class="main-header" id="header">
+    <div class="container">
+      <div class="logo">
+        <a href="#home">MONU <span>KUMAWAT</span></a>
+      </div>
+      
+      <!-- Desktop Navigation Links pointing to section hashes -->
+      <nav class="desktop-nav">
+        <ul>
+          <li><a href="#home" class="active">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#photography">Photography</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      
+      <!-- Mobile hamburger toggle -->
+      <button class="mobile-nav-toggle" aria-label="Toggle Navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Sidebar Drawer -->
+  <div class="mobile-sidebar">
+    <ul>
+      <li><a href="#home" class="active">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#photography">Photography</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+
+  <!-- Dynamic Theme Color Extractor Panel -->
+  <div class="settings-panel">
+    <button class="settings-toggle" aria-label="Toggle Color Theme Controls">
+      <i class="fa-solid fa-gear"></i>
+    </button>
+    <h3>THEME CONTROLLER</h3>
+    <div class="settings-group">
+      <label>Preset Themes</label>
+      <div class="presets">
+        <button class="preset-btn preset-cyber" title="Cyberpunk Neon"></button>
+        <button class="preset-btn preset-matrix" title="Matrix Green"></button>
+        <button class="preset-btn preset-sunset" title="Sunset Orange"></button>
+        <button class="preset-btn preset-ice" title="Ice Blue"></button>
+      </div>
+    </div>
+    <div class="settings-group">
+      <label>Extract Theme from Image</label>
+      <div class="color-uploader-wrapper">
+        <input type="file" id="theme-image-upload" accept="image/*">
+        <span><i class="fa-solid fa-upload"></i> Upload Image</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 1: HERO -->
+  <section id="home" class="hero-section">
+    <div class="container">
+      <div class="hero-grid">
+        <!-- Content -->
+        <div class="hero-content">
+          <span class="hero-subtitle">Hello World, I'm</span>
+          <h1 class="hero-title">MONU <span>KUMAWAT</span></h1>
+          
+          <!-- Animated typing text -->
+          <div class="typing-container">
+            I am a <span id="typed-text"></span><span class="typing-cursor"></span>
+          </div>
+          
+          <p class="hero-description">
+            B.Tech Computer Science Engineering Student (2023–2027). A programmer and creative designer bridging the gap between computational logic and futuristic user experiences.
+          </p>
+          
+          <div class="hero-cta">
+            <a href="#portfolio" class="btn btn-primary">Explore Portfolio <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="assets/Monu_Kumawat_Resume.pdf" class="btn btn-outline" download>Download Resume <i class="fa-solid fa-download"></i></a>
+            <a href="#contact" class="btn btn-outline">Contact Me <i class="fa-solid fa-envelope"></i></a>
+          </div>
+        </div>
+        
+        <!-- Profile Picture Frame (3D canvas renderer) -->
+        <div class="hero-profile-container">
+          <div class="profile-avatar-frame-3d">
+            <input type="file" accept="image/*" title="Upload custom photo to extract theme colors!">
+            <div id="profile-3d-canvas-container"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 2: ABOUT -->
+  <section id="about" class="about-section">
+    <div class="container">
+      <div class="section-title-wrap">
+        <span class="section-tag">&lt;identity&gt;</span>
+        <h2 class="section-title">About <span>Monu</span></h2>
+      </div>
+      
+      <div class="about-grid">
+        <!-- Terminal Info Box -->
+        <div class="glass-card terminal-card" style="padding:0; overflow:hidden;">
+          <div class="terminal-header">
+            <div class="terminal-dots">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <div class="terminal-title">monukumawat.json</div>
+          </div>
+          <div class="terminal-body">
+            <div class="terminal-line"><span class="cmd">cat</span> user_profile.json</div>
+            <div class="terminal-line">
+              <span class="output">{</span><br>
+              &nbsp;&nbsp;<span class="output">"name":</span> <span class="cmd">"Monu Kumawat"</span>,<br>
+              &nbsp;&nbsp;<span class="output">"role":</span> <span class="cmd">"Computer Science Student & Developer"</span>,<br>
+              &nbsp;&nbsp;<span class="output">"years":</span> <span class="cmd">"2023 - 2027"</span>,<br>
+              &nbsp;&nbsp;<span class="output">"major":</span> <span class="cmd">"B.Tech Computer Science Engineering"</span>,<br>
+              &nbsp;&nbsp;<span class="output">"skills": [</span><br>
+              &nbsp;&nbsp;&nbsp;&nbsp;<span class="cmd">"Web Development"</span>,<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;<span class="cmd">"Graphic Designing"</span>,<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;<span class="cmd">"Photography"</span>,<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;<span class="cmd">"Digital Marketing"</span><br>
+              &nbsp;&nbsp;<span class="output">],</span><br>
+              &nbsp;&nbsp;<span class="output">"openToWork":</span> <span class="cmd">true</span>,<br>
+              &nbsp;&nbsp;<span class="output">"passion":</span> <span class="cmd">"Bridging logic and creativity"</span><br>
+              <span class="output">}</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Interests and Goals -->
+        <div class="about-info-panel">
+          <div class="about-interests">
+            <div class="interest-card glass-card">
+              <h4><i class="fa-solid fa-code"></i> Technical Interests</h4>
+              <p>Passionate about web standards, frontend architectures, interactive WebGL computing systems, and backend services integration.</p>
+            </div>
+            <div class="interest-card glass-card">
+              <h4><i class="fa-solid fa-pen-nib"></i> Creative Directions</h4>
+              <p>Exploring high-fidelity UI mockup prototyping, futuristic brand aesthetics, minimal geometric logos, and high-impact digital marketing assets.</p>
+            </div>
+            <div class="interest-card glass-card" style="grid-column: span 2;">
+              <h4><i class="fa-solid fa-bullseye"></i> Professional Career Goals</h4>
+              <p>Striving to build enterprise-scale software configurations that simplify day-to-day services. I aim to merge high-performance data systems with pixel-perfect visual styling to deliver comprehensive customer value.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION 3: SKILLS -->
+  <section id="skills" class="skills-section">
+    <div class="container">
+      <div class="section-title-wrap">
+        <span class="section-tag">&lt;tech_stack&gt;</span>
+        <h2 class="section-title">Technical <span>Skills</span></h2>
+      </div>
+      
+      <!-- Skills categories grid -->
+      <div class="skills-grid">
+        <div class="skill-category-card">
+          <div class="skill-category-inner glass-card">
+            <h3><i class="fa-solid fa-code"></i> Web Dev</h3>
+            <div class="skill-list">
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">HTML5 / CSS3</span>
+                  <span class="skill-percentage">95%</span>
+                </div>
+                <div class="skill-bar-container">
+                  <div class="skill-bar-fill" data-percent="95"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">JavaScript (ES6+)</span>
+                  <span class="skill-percentage">90%</span>
+                </div>
+                <div class="skill-bar-container">
+                  <div class="skill-bar-fill" data-percent="90"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">Three.js / WebGL</span>
+                  <span class="skill-percentage">80%</span>
+                </div>
+                <div class="skill-bar-container">
+                  <div class="skill-bar-fill" data-percent="80"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">NodeJS / Express</span>
+                  <span class="skill-percentage">75%</span>
+                </div>
+                <div class="skill-bar-container">
+                  <div class="skill-bar-fill" data-percent="75"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-category-card">
+          <div class="skill-category-inner glass-card">
+            <h3><i class="fa-solid fa-pen-nib"></i> Graphic Design</h3>
+            <div class="skill-list">
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">Figma UI/UX Mockups</span>
+                  <span class="skill-percentage">90%</span>
+                </div>
+                <div class="skill-bar-container">
+                  <div class="skill-bar-fill" data-percent="90"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">Adobe Illustrator</span>
+                  <span class="skill-percentage">85%</span>
+                </div>
+                <div class="skill-bar-container">
+                  <div class="skill-bar-fill" data-percent="85"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">Adobe Photoshop</span>
+                  <span class="skill-percentage">80%</span>
+                </div>
+                <div class="skill-bar-container">
+                  <div class="skill-bar-fill" data-percent="80"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">Logo & Vector Art</span>
+                  <span class="skill-percentage">85%</span>
+                </div>
+                <div class="skill-bar-container">
+                  <div class="skill-bar-fill" data-percent="85"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-category-card">
+          <div class="skill-category-inner glass-card">
+            <h3><i class="fa-solid fa-camera"></i> Photography</h3>
+            <div class="skill-list">
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">DSLR Camera & Optics</span>
+                  <span class="skill-percentage">85%</span>
+                </div>
+                <div class="skill-bar-container">
+                  <div class="skill-bar-fill" data-percent="85"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">Lightroom Development</span>
+                  <span class="skill-percentage">90%</span>
+                </div>
+                <div class="skill-bar-container">
+                  <div class="skill-bar-fill" data-percent="90"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">Color Grading Aesthetics</span>
+                  <span class="skill-percentage">85%</span>
+                </div>
+                <div class="skill-bar-container">
+                  <div class="skill-bar-fill" data-percent="85"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">Framing & Geometry</span>
+                  <span class="skill-percentage">88%</span>
+                </div>
+                <div class="skill-bar-container">
+                  <div class="skill-bar-fill" data-percent="88"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-category-card">
+          <div class="skill-category-inner glass-card">
+            <h3><i class="fa-solid fa-bullhorn"></i> Digital Marketing</h3>
+            <div class="skill-list">
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">Search Engine Opt (SEO)</span>
+                  <span class="skill-percentage">85%</span>
+                </div>
+                <div class="skill-bar-container">
+                  <div class="skill-bar-fill" data-percent="85"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">Social Media Campaigns</span>
+                  <span class="skill-percentage">80%</span>
+                </div>
+                <div class="skill-bar-container">
+                  <div class="skill-bar-fill" data-percent="80"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">Analytics & Metrics</span>
+                  <span class="skill-percentage">75%</span>
+                </div>
+                <div class="skill-bar-container">
+                  <div class="skill-bar-fill" data-percent="75"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">Content Funnel Strategy</span>
+                  <span class="skill-percentage">80%</span>
+                </div>
+                <div class="skill-bar-container">
+                  <div class="skill-bar-fill" data-percent="80"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- SVG Circular Indicators -->
+      <div class="section-title-wrap" style="margin-top: 80px; margin-bottom: 40px;">
+        <span class="section-tag">&lt;core_competencies&gt;</span>
+        <h2 class="section-title">Operational <span>Gauges</span></h2>
+      </div>
+      
+      <div class="skills-gauges">
+        <svg style="width:0; height:0; position:absolute;" aria-hidden="true">
+          <defs>
+            <linearGradient id="gauge-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="var(--primary-color)"></stop>
+              <stop offset="100%" stop-color="var(--secondary-color)"></stop>
+            </linearGradient>
+          </defs>
+        </svg>
+
+        <div class="gauge-card glass-card">
+          <div class="gauge-svg-container">
+            <svg>
+              <circle class="gauge-circle-bg" cx="65" cy="65" r="54"></circle>
+              <circle class="gauge-circle-fill" cx="65" cy="65" r="54" data-percent="92"></circle>
+            </svg>
+            <span class="gauge-value">92%</span>
+          </div>
+          <span class="gauge-title">Frontend Architecture</span>
+        </div>
+
+        <div class="gauge-card glass-card">
+          <div class="gauge-svg-container">
+            <svg>
+              <circle class="gauge-circle-bg" cx="65" cy="65" r="54"></circle>
+              <circle class="gauge-circle-fill" cx="65" cy="65" r="54" data-percent="88"></circle>
+            </svg>
+            <span class="gauge-value">88%</span>
+          </div>
+          <span class="gauge-title">Art Direction</span>
+        </div>
+
+        <div class="gauge-card glass-card">
+          <div class="gauge-svg-container">
+            <svg>
+              <circle class="gauge-circle-bg" cx="65" cy="65" r="54"></circle>
+              <circle class="gauge-circle-fill" cx="65" cy="65" r="54" data-percent="85"></circle>
+            </svg>
+            <span class="gauge-value">85%</span>
+          </div>
+          <span class="gauge-title">Grading & Capture</span>
+        </div>
+
+        <div class="gauge-card glass-card">
+          <div class="gauge-svg-container">
+            <svg>
+              <circle class="gauge-circle-bg" cx="65" cy="65" r="54"></circle>
+              <circle class="gauge-circle-fill" cx="65" cy="65" r="54" data-percent="80"></circle>
+            </svg>
+            <span class="gauge-value">80%</span>
+          </div>
+          <span class="gauge-title">Growth Marketing</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4: SERVICES -->
+  <section id="services" class="services-section">
+    <div class="container">
+      <div class="section-title-wrap">
+        <span class="section-tag">&lt;offerings&gt;</span>
+        <h2 class="section-title">My <span>Services</span></h2>
+      </div>
+      
+      <div class="services-grid">
+        <div class="service-card glass-card">
+          <div class="service-icon">
+            <i class="fa-solid fa-laptop-code"></i>
+          </div>
+          <h3>Website Development</h3>
+          <p>Custom, end-to-end full-stack web solutions engineered for performance, security, and scalability. Responsive across device types.</p>
+          <ul class="service-bullets">
+            <li>Dynamic Database Configurations</li>
+            <li>Tailored Admin Panels & APIs</li>
+            <li>Semantic SEO Code Layouts</li>
+          </ul>
+        </div>
+
+        <div class="service-card glass-card">
+          <div class="service-icon">
+            <i class="fa-solid fa-compass-drafting"></i>
+          </div>
+          <h3>UI/UX Design</h3>
+          <p>User-centric digital products styled around intuitive navigation flows. High-fidelity layouts designed to optimize customer experiences.</p>
+          <ul class="service-bullets">
+            <li>Figma Wireframes & Prototypes</li>
+            <li>Interaction & Journey Mapping</li>
+            <li>Accessibility & Design Systems</li>
+          </ul>
+        </div>
+
+        <div class="service-card glass-card">
+          <div class="service-icon">
+            <i class="fa-solid fa-pen-nib"></i>
+          </div>
+          <h3>Graphic Designing</h3>
+          <p>Impactful visual identities for digital products, including vector brand logos, digital mockups, assets, and design sheets.</p>
+          <ul class="service-bullets">
+            <li>High-Fidelity Figma Wireframes</li>
+            <li>Custom Vector SVG Asset Packs</li>
+            <li>Brand Guidelines & Color Styling</li>
+          </ul>
+        </div>
+
+        <div class="service-card glass-card">
+          <div class="service-icon">
+            <i class="fa-solid fa-camera"></i>
+          </div>
+          <h3>Photography</h3>
+          <p>Professional visual documentation, highlighting symmetry, architectural lines, portrait capture, and Lightroom post-processing.</p>
+          <ul class="service-bullets">
+            <li>Studio RAW Image Capture</li>
+            <li>Cinematic Lightroom Color Grading</li>
+            <li>Digital Media Asset Optimization</li>
+          </ul>
+        </div>
+
+        <div class="service-card glass-card">
+          <div class="service-icon">
+            <i class="fa-solid fa-chart-line"></i>
+          </div>
+          <h3>Digital Marketing</h3>
+          <p>Strategic growth consulting covering technical SEO, data analytics, automated funnels, and organic lead acquisition campaigns.</p>
+          <ul class="service-bullets">
+            <li>Audience Performance Audits</li>
+            <li>Paid Advertising Analytics</li>
+            <li>Conversion Funnel Optimization</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 5: PORTFOLIO -->
+  <section id="portfolio" class="portfolio-section">
+    <div class="container">
+      <div class="section-title-wrap">
+        <span class="section-tag">&lt;creations&gt;</span>
+        <h2 class="section-title">My <span>Portfolio</span></h2>
+      </div>
+      
+      <div class="portfolio-controls">
+        <div class="filter-group">
+          <button class="filter-btn active" data-filter="all">All Projects</button>
+          <button class="filter-btn" data-filter="web-development">Web Dev</button>
+          <button class="filter-btn" data-filter="graphic-design">Graphic Design</button>
+          <button class="filter-btn" data-filter="photography">Photography</button>
+        </div>
+        
+        <div class="search-wrapper">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" id="portfolio-search" placeholder="Search projects or tech...">
+        </div>
+      </div>
+      
+      <!-- Portfolio Cards Grid (Dynamically Rendered in script.js) -->
+      <div class="portfolio-grid">
+        <!-- Rendered Projects Go Here -->
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 6: PHOTOGRAPHY -->
+  <section id="photography" class="photography-section photo-section">
+    <div class="container">
+      <div class="section-title-wrap">
+        <span class="section-tag">&lt;captures&gt;</span>
+        <h2 class="section-title">Visual <span>Log</span></h2>
+      </div>
+      
+      <div class="portfolio-controls" style="justify-content: center;">
+        <div class="filter-group">
+          <button class="filter-btn active" data-filter="all">All Photos</button>
+          <button class="filter-btn" data-filter="urban">Urban</button>
+          <button class="filter-btn" data-filter="nature">Nature</button>
+          <button class="filter-btn" data-filter="creative">Creative</button>
+        </div>
+      </div>
+      
+      <!-- Masonry Grid (Rendered dynamically via script.js) -->
+      <div class="photography-grid">
+        <!-- Rendered photo cards go here -->
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 7: CONTACT -->
+  <section id="contact" class="contact-section">
+    <div class="container">
+      <div class="section-title-wrap">
+        <span class="section-tag">&lt;connect&gt;</span>
+        <h2 class="section-title">Get in <span>Touch</span></h2>
+      </div>
+      
+      <div class="contact-grid">
+        <div class="contact-info-list">
+          <div class="glass-card contact-info-item">
+            <div class="contact-info-icon">
+              <i class="fa-solid fa-phone"></i>
+            </div>
+            <div class="contact-info-text">
+              <h4>Phone Number</h4>
+              <p><a href="tel:+919772566884">+91 9772566884</a></p>
+            </div>
+          </div>
+          
+          <div class="glass-card contact-info-item">
+            <div class="contact-info-icon">
+              <i class="fa-solid fa-envelope"></i>
+            </div>
+            <div class="contact-info-text">
+              <h4>Email Address</h4>
+              <p><a href="mailto:monukumawat2023@gmail.com">monukumawat2023@gmail.com</a></p>
+            </div>
+          </div>
+          
+          <div class="glass-card contact-info-item">
+            <div class="contact-info-icon">
+              <i class="fa-brands fa-whatsapp"></i>
+            </div>
+            <div class="contact-info-text">
+              <h4>Direct Chat</h4>
+              <p><a href="https://wa.me/919772566884" target="_blank">WhatsApp Chat Link</a></p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Interactive Web Form -->
+        <div class="glass-card">
+          <form class="contact-form" id="contact-form">
+            <div class="form-status"></div>
+            
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Name <span style="color:var(--accent-color);">*</span></label>
+                <input type="text" id="name" name="name" required placeholder="Jane Doe">
+                <span class="error-msg">Name is required.</span>
+              </div>
+              <div class="form-group">
+                <label for="email">Email Address <span style="color:var(--accent-color);">*</span></label>
+                <input type="email" id="email" name="email" required placeholder="jane@example.com">
+                <span class="error-msg">Enter a valid email address.</span>
+              </div>
+            </div>
+            
+            <div class="form-row">
+              <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" placeholder="+91 9876543210">
+              </div>
+              <div class="form-group">
+                <label for="subject">Subject <span style="color:var(--accent-color);">*</span></label>
+                <input type="text" id="subject" name="subject" required placeholder="Business Inquiry">
+                <span class="error-msg">Subject is required.</span>
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label for="message">Message <span style="color:var(--accent-color);">*</span></label>
+              <textarea id="message" name="message" rows="5" required placeholder="Write your message here..."></textarea>
+              <span class="error-msg">Message body cannot be empty.</span>
+            </div>
+            
+            <button type="submit" class="btn btn-primary">Send Message <i class="fa-solid fa-paper-plane"></i></button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO DETAILS MODAL overlay -->
+  <div class="modal" id="portfolio-modal">
+    <div class="modal-content">
+      <button class="modal-close" aria-label="Close Project Modal">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div class="modal-img-box">
+        <img src="" alt="Project Preview">
+      </div>
+      <div class="modal-details">
+        <div class="modal-header-info">
+          <h2>Project Title</h2>
+          <div class="modal-meta"><i class="fa-regular fa-calendar"></i> <span>February 2026</span></div>
+        </div>
+        <p class="modal-body">Detailed project summary and specification notes go here.</p>
+        <div class="modal-tech">
+          <h4>Technologies Used</h4>
+          <div class="modal-tags"></div>
+        </div>
+        <div class="modal-actions">
+          <a href="#" class="btn btn-primary" target="_blank">Live Demo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+          <a href="#" class="btn btn-outline" target="_blank">View Code <i class="fa-brands fa-github"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PHOTOGRAPHY LIGHTBOX PREVIEW SYSTEM -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" aria-label="Close Lightbox"><i class="fa-solid fa-xmark"></i></button>
+    <button class="lightbox-nav lightbox-prev" aria-label="Previous Image"><i class="fa-solid fa-chevron-left"></i></button>
+    <div class="lightbox-content">
+      <img class="lightbox-img" src="" alt="Active View">
+      <div class="lightbox-caption">Photo Caption</div>
+    </div>
+    <button class="lightbox-nav lightbox-next" aria-label="Next Image"><i class="fa-solid fa-chevron-right"></i></button>
+  </div>
+
+  <!-- FLOATING WHATSAPP BUTTON (Pulsing neon widget) -->
+  <div class="whatsapp-widget">
+    <a href="#" class="whatsapp-btn" aria-label="Chat on WhatsApp">
+      <i class="fa-brands fa-whatsapp"></i>
+    </a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="main-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-info">
+          <h3>MONU KUMAWAT</h3>
+          <p>Creative tech practitioner combining frontend architecture, digital design paradigms, and media capture techniques.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#photography">Photography</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <h4>Get in Touch</h4>
+          <p><i class="fa-solid fa-phone"></i> +91 9772566884</p>
+          <p><i class="fa-solid fa-envelope"></i> monukumawat2023@gmail.com</p>
+          <div class="footer-socials">
+            <a href="https://github.com" target="_blank" class="social-icon"><i class="fa-brands fa-github"></i></a>
+            <a href="https://linkedin.com" target="_blank" class="social-icon"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://instagram.com" target="_blank" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://wa.me/919772566884" target="_blank" class="social-icon"><i class="fa-brands fa-whatsapp"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Monu Kumawat | All Rights Reserved</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- CDNs for External Libraries -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  
+  <!-- EmailJS SDK initialization script -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script>
+    (function(){
+      // Initialize EmailJS with your active Public Key (Replace with your actual public key)
+      emailjs.init("YOUR_PUBLIC_KEY");
+    })();
+  </script>
+  
+  <!-- Main Script -->
+  <script src="assets/js/script.js"></script>
+</body>
+</html>
