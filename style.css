@@ -658,40 +658,6 @@ nav.desktop-nav a.active::after {
   pointer-events: none;
 }
 
-.profile-avatar-frame-3d::after {
-  content: 'CLICK TO UPLOAD';
-  position: absolute;
-  bottom: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: rgba(0,0,0,0.85);
-  border: 1px solid var(--primary-color);
-  border-radius: 20px;
-  padding: 4px 12px;
-  font-size: 0.65rem;
-  color: var(--primary-color);
-  font-family: var(--font-mono);
-  letter-spacing: 1px;
-  opacity: 0;
-  transition: var(--transition);
-  pointer-events: none;
-  z-index: 5;
-}
-
-.profile-avatar-frame-3d:hover::after {
-  opacity: 1;
-}
-
-.profile-avatar-frame-3d input[type="file"] {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  cursor: pointer;
-  z-index: 10;
-}
 
 #profile-3d-canvas-container {
   width: 100%;
