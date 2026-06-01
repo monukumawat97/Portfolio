@@ -188,21 +188,6 @@ function handleImageUpload(file) {
     img.onload = function() {
       // Extract colors
       extractColorsFromImage(img);
-      
-      // If there's an active 3D profile mesh, update its texture dynamically
-      if (profile3DMesh && profile3DTexture) {
-        const texLoader = new THREE.TextureLoader();
-        texLoader.load(event.target.result, (newTex) => {
-          profile3DTexture = newTex;
-          if (Array.isArray(profile3DMesh.material)) {
-            profile3DMesh.material[4].map = newTex;
-            profile3DMesh.material[4].needsUpdate = true;
-          }
-        });
-      }
-      
-      // Save profile picture source in local storage
-      localStorage.setItem('profile-avatar', event.target.result);
     };
     img.src = event.target.result;
   };
@@ -586,24 +571,7 @@ function initSettingsPanel() {
     });
   }
   
-  // Profile Picture Direct Image Uploader (e.g. Hero Section Avatar)
-  if (profileUploaders.length > 0) {
-    profileUploaders.forEach(uploader => {
-      uploader.addEventListener('change', (e) => {
-        const file = e.target.files[0];
-        handleImageUpload(file);
-      });
-    });
-  }
-  
-  // Restore loaded avatar if exists in LocalStorage
-  const savedAvatar = localStorage.getItem('profile-avatar');
-  if (savedAvatar) {
-    const profileImages = document.querySelectorAll('.profile-img');
-    profileImages.forEach(img => {
-      img.src = savedAvatar;
-    });
-  }
+
   
   // Preset Buttons Action
   presetButtons.forEach(btn => {
@@ -1285,18 +1253,18 @@ function init3DProfilePhoto() {
   const ambLight = new THREE.AmbientLight(0xffffff, 0.6);
   profileScene.add(ambLight);
   
-  const savedAvatar = localStorage.getItem('profile-avatar');
-  const defaultAvatar = 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=600&auto=format&fit=crop';
+  const profileAvatar = 'profile.jpg';
   
   const textureLoader = new THREE.TextureLoader();
   textureLoader.crossOrigin = 'anonymous';
   
   // Load texture
-  textureLoader.load(savedAvatar || defaultAvatar, (texture) => {
+  textureLoader.load(profileAvatar, (texture) => {
     profile3DTexture = texture;
     createProfileMesh();
   }, undefined, () => {
     // Fallback load default if cross-origin fails
+    const defaultAvatar = 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=600&auto=format&fit=crop';
     textureLoader.load(defaultAvatar, (texture) => {
       profile3DTexture = texture;
       createProfileMesh();
