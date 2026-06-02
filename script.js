@@ -783,13 +783,13 @@ function initSkillCards() {
    ========================================================================= */
 const portfolioData = {
   1: {
-    title: 'Futuristic E-Commerce',
+    title: 'Vishal Photos',
     category: 'web-development',
     date: 'February 2026',
-    desc: 'A full-stack, high-performance cyberpunk-themed e-commerce platform incorporating Stripe checkout, custom interactive 3D product previews via Three.js, and complex product search filters.',
-    tech: ['HTML5', 'CSS3', 'Three.js', 'Node.js', 'Express', 'Stripe API'],
+    desc: 'A high-performance cyberpunk-themed photography e-commerce and gallery platform designed to showcase and sell professional creative captures, featuring custom image filters and smooth animations.',
+    tech: ['HTML5', 'CSS3', 'JavaScript', 'GSAP', 'Responsive Design'],
     img: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=800&auto=format&fit=crop',
-    link: '#'
+    link: 'https://vishalphotos.com'
   },
   2: {
     title: 'Cyberpunk Portfolio',
@@ -945,6 +945,12 @@ function initPortfolio() {
       span.textContent = t;
       tagsContainer.appendChild(span);
     });
+
+    // Update Live Demo Link
+    const demoLink = modal.querySelector('.modal-actions .btn-primary');
+    if (demoLink) {
+      demoLink.href = data.link || '#';
+    }
     
     modal.classList.add('active');
     document.body.style.overflow = 'hidden'; // Stop background scroll
@@ -1148,7 +1154,23 @@ function initContactForm() {
     const serviceID = 'default_service'; // Default service ID (Replace with yours)
     const templateID = 'template_portfolio'; // Replace with yours
     
-    // Check if EmailJS sdk is loaded globally
+    function triggerMailtoFallback() {
+      const name = encodeURIComponent(form.querySelector('#name').value);
+      const email = encodeURIComponent(form.querySelector('#email').value);
+      const subject = encodeURIComponent(form.querySelector('#subject').value);
+      const message = encodeURIComponent(form.querySelector('#message').value);
+      const mailtoUrl = `mailto:monukumawat2023@gmail.com?subject=${subject}&body=Name: ${name}%0D%0AEmail: ${email}%0D%0A%0D%0AMessage:%0D%0A${message}`;
+      
+      showStatus('Opening your email client to send message...', 'success');
+      setTimeout(() => {
+        window.location.href = mailtoUrl;
+        form.reset();
+        sendButton.innerHTML = originalText;
+        sendButton.disabled = false;
+      }, 1000);
+    }
+    
+    // Check if EmailJS sdk is loaded globally and initialized
     if (typeof emailjs !== 'undefined') {
       emailjs.sendForm(serviceID, templateID, form)
         .then(() => {
@@ -1158,20 +1180,12 @@ function initContactForm() {
           sendButton.disabled = false;
         }, (err) => {
           console.error('EmailJS Error: ', err);
-          // Fallback sending alert
-          showStatus('EmailJS template matches required. Mail delivery simulated.', 'success');
-          form.reset();
-          sendButton.innerHTML = originalText;
-          sendButton.disabled = false;
+          // Fallback to mailto
+          triggerMailtoFallback();
         });
     } else {
-      // Simulate submission when offline/no API
-      setTimeout(() => {
-        showStatus('Simulated Success: Connect EmailJS in assets/js/script.js.', 'success');
-        form.reset();
-        sendButton.innerHTML = originalText;
-        sendButton.disabled = false;
-      }, 1500);
+      // Trigger mailto fallback if EmailJS is not loaded
+      triggerMailtoFallback();
     }
   });
   
