@@ -35,12 +35,19 @@
         </ul>
       </nav>
       
-      <!-- Mobile hamburger toggle -->
-      <button class="mobile-nav-toggle" aria-label="Toggle Navigation">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+      <!-- Header Action Items (Theme Toggle & Mobile Menu Toggle) -->
+      <div class="header-actions">
+        <button class="theme-toggle-btn" id="theme-toggle-btn" aria-label="Toggle Light/Dark Theme">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+        
+        <!-- Mobile hamburger toggle -->
+        <button class="mobile-nav-toggle" aria-label="Toggle Navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
     </div>
   </header>
 
@@ -606,9 +613,10 @@
         
         <!-- Interactive Web Form -->
         <div class="glass-card">
-          <form class="contact-form" id="contact-form">
+          <form action="https://api.web3forms.com/submit" method="POST" class="contact-form" id="contact-form">
             <div class="form-status"></div>
-            
+            <input type="hidden" name="access_key" value="107f0337-7fd2-4299-ac98-713dd65d37b7">
+
             <div class="form-row">
               <div class="form-group">
                 <label for="name">Name <span style="color:var(--accent-color);">*</span></label>
@@ -641,9 +649,6 @@
             </div>
             
             <button type="submit" class="btn btn-primary">Send Message <i class="fa-solid fa-paper-plane"></i></button>
-            <div class="direct-email-link" style="margin-top: 15px; text-align: center; font-size: 0.9rem; opacity: 0.85;">
-              Or email directly: <a href="mailto:monukumawat2023@gmail.com" style="color: var(--primary-color); text-decoration: none; font-weight: 500; border-bottom: 1px dashed var(--primary-color); transition: all 0.3s ease;">monukumawat2023@gmail.com</a>
-            </div>
           </form>
         </div>
       </div>
@@ -738,12 +743,12 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
   
-  <!-- EmailJS SDK initialization script -->
-  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <!-- EmailJS SDK initialization script (Browser SDK v4) -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <script>
     (function(){
-      // Initialize EmailJS with your active Public Key (Replace with your actual public key)
-      emailjs.init("YOUR_PUBLIC_KEY");
+      // Initialize EmailJS with your active Public Key
+      emailjs.init("1Kq4NDRRz7VnPfp7N");
     })();
   </script>
   
